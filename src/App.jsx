@@ -1,45 +1,22 @@
-import { useEffect } from 'react';
-import { connect } from 'react-redux';
-import { ToastContainer } from 'react-toastify';
-
-import ContactForm from 'components/Contacts/ContactForm';
-import Filter from 'components/Filter';
-import ContactList from 'components/Contacts/ContactList';
+import { Suspense } from 'react';
 import Container from 'components/Container';
-import Section from 'components/Section';
 import Loader from 'components/Loader';
+import { Switch, Route } from 'react-router-dom';
+import routes from 'data/routes';
 
-import { operations, isloading } from 'redux/contacts';
-
-const App = ({ loading, getContacts }) => {
-  useEffect(() => {
-    getContacts();
-  }, []); // eslint-disable-line
-
+const App = () => {
   return (
     <Container>
-      {loading && <Loader />}
-      <Section title="Phonebook">
-        <ContactForm />
-      </Section>
-
-      <Section title="Contacts">
-        <div>
-          <Filter />
-          <ContactList />
-        </div>
-      </Section>
-      <ToastContainer />
+      <Suspense fallback={<Loader />}>
+        <Switch>
+          {routes.map(({ path, exact, component: Component }) => (
+            <Route key={path} path={path} exact={exact} component={Component} />
+          ))}
+          <Route component={Loader} />
+        </Switch>
+      </Suspense>
     </Container>
   );
 };
 
-const mapStateToProps = state => ({
-  loading: isloading(state),
-});
-
-const mapDispatchToProps = dispatch => {
-  return { getContacts: () => dispatch(operations.getContacts()) };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default App;
