@@ -6,20 +6,19 @@ const useStyles = createUseStyles({
   filling: {
     paddingBottom: 0,
     '& h2': {
-      marginBottom: 0,
+      marginBottom: '-1px',
     },
+    overflow: 'hidden',
   },
   container: {
     display: 'flex',
     width: '100%',
-    // height: '100px',
   },
   link: {
     textDecoration: 'none',
     fontWeight: 'bold',
     color: '#383838',
     width: '50%',
-    height: 'calc(100%-40px)',
     padding: '20px 0',
     textAlign: 'center',
     '&:hover': {
@@ -38,7 +37,7 @@ const HomePage = () => {
     <Section title="Welcome in Phonebook App" customClass={classes.filling}>
       <nav className={classes.container}>
         <NavLink
-          to="/registration"
+          to="/register"
           className={[classes.link, classes.line].join(' ')}
         >
           Sign Up

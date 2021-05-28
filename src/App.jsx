@@ -12,7 +12,7 @@ const App = () => {
           {routes.map(({ path, exact, component: Component }) => (
             <Route key={path} path={path} exact={exact} component={Component} />
           ))}
-          <Route component={Loader} />
+          {/* <Route component={Loader} /> */}
         </Switch>
       </Suspense>
     </Container>
