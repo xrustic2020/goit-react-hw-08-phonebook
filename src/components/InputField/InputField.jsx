@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import s from './InputField.module.css';
 
 const InputField = ({ labelName, type, name, value, handler }) => {
@@ -13,6 +14,14 @@ const InputField = ({ labelName, type, name, value, handler }) => {
       />
     </label>
   );
+};
+
+InputField.propTypes = {
+  labelName: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
+  name: PropTypes.string,
+  value: PropTypes.string.isRequired,
+  handler: PropTypes.func.isRequired,
 };
 
 export default InputField;

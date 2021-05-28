@@ -1,0 +1,28 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logout {
+  color: white;
+  display: flex;
+  align-items: center;
+}
+
+.welcome {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  font-family: 'Montserrat', sans-serif;
+  margin-right: 20px;
+}
+
+.userName {
+  font-weight: bold;
+  color: lightgreen;
+}
+
+.userAvatar {
+  padding: 0 5px;
+}

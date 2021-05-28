@@ -12,6 +12,6 @@ export default function Section({ title, children, customClass = '' }) {
 
 Section.propTypes = {
   title: PropTypes.string.isRequired,
-  // children: PropTypes.arrayOf(PropTypes.element.isRequired).isRequired,
+  children: PropTypes.any.isRequired,
   customClass: PropTypes.any,
 };

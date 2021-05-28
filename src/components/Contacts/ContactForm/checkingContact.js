@@ -1,6 +1,8 @@
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import store from 'redux/store';
+import persistedStore from 'redux/store';
+
+const { store } = persistedStore;
 
 export default function checkingContact(name, number, setFilter) {
   if (!name) {

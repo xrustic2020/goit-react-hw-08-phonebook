@@ -14,7 +14,7 @@ const {
   deleteError,
 } = actions;
 
-axios.defaults.baseURL = 'http://localhost:4444';
+axios.defaults.baseURL = 'https://connections-api.herokuapp.com/';
 
 const getContacts = () => dispatch => {
   dispatch(getRequest());
@@ -49,8 +49,6 @@ const deleteContact = ({ id, name }) => dispatch => {
     })
     .catch(error => dispatch(deleteError(error)));
 };
-
-////////////////////////
 
 const operations = {
   getContacts,

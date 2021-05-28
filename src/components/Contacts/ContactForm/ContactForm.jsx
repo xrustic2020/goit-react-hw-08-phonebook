@@ -7,6 +7,8 @@ import Button from '@material-ui/core/Button';
 import s from './ContactForm.module.css';
 import checkingContact from './checkingContact';
 
+import InputField from 'components/InputField';
+
 const ContactForm = ({ onAddedContact, setFilter }) => {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
@@ -23,27 +25,20 @@ const ContactForm = ({ onAddedContact, setFilter }) => {
   return (
     <form onSubmit={evt => handleSubmit(evt)} className={s.form}>
       <div className={s.overlay}>
-        <label>
-          <span>Name</span>
-          <input
-            type="text"
-            name="name"
-            className={s.input}
-            value={name}
-            onChange={evt => setName(evt.target.value)}
-          />
-        </label>
-
-        <label>
-          <span>Number</span>
-          <input
-            type="number"
-            name="number"
-            className={s.input}
-            value={number}
-            onChange={evt => setNumber(evt.target.value)}
-          />
-        </label>
+        <InputField
+          labelName="Name"
+          type="text"
+          name="name"
+          value={name}
+          handler={setName}
+        />
+        <InputField
+          labelName="Number"
+          type="number"
+          name="number"
+          value={number}
+          handler={setNumber}
+        />
       </div>
       <Button
         type="submit"

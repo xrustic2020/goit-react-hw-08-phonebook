@@ -4,7 +4,7 @@ const HomePage = lazy(() =>
   import('views/HomePage' /* webpackChunkName: "HomePage" */),
 );
 const Registrations = lazy(() =>
-  import('views/Registrations' /* webpackChunkName: "Registrations" */),
+  import('views/Registration' /* webpackChunkName: "Registrations" */),
 );
 const Login = lazy(() => import('views/Login' /* webpackChunkName: "Login" */));
 
@@ -23,7 +23,7 @@ const routes = [
     path: '/register',
     label: 'Registration',
     component: Registrations,
-    exact: true,
+    exact: false,
   },
   {
     path: '/login',
