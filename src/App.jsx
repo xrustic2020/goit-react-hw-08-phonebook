@@ -1,7 +1,7 @@
 import { Suspense, useEffect } from 'react';
 import Container from 'components/Container';
 import Loader from 'components/Loader';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import routes from 'data/routes';
 import { connect } from 'react-redux';
 import { authOperations } from 'redux/auth';
@@ -20,7 +20,7 @@ const App = ({ getUserData }) => {
           {routes.map(({ path, exact, component: Component }) => (
             <Route key={path} path={path} exact={exact} component={Component} />
           ))}
-          {/* <Route component={<h1>404 Page Not Found</h1>} /> */}
+          <Redirect to='/' />
         </Switch>
       </Suspense>
     </Container>

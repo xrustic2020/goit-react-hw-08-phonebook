@@ -3,7 +3,7 @@
 .nav {
   font-size: 26px;
   font-family: 'Dancing Script', cursive;
-  color: white;
+  color: #ffffff;
   position: fixed;
   left: 0;
   top: 0;
@@ -14,4 +14,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.link {
+  text-decoration: none;
+  color: #ffffff;
 }

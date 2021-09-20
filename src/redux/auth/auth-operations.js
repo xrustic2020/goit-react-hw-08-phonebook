@@ -1,5 +1,6 @@
 import axios from 'axios';
 import authActions from './auth-actions';
+import { toast } from 'react-toastify';
 
 axios.defaults.baseURL = 'https://connections-api.herokuapp.com/';
 
@@ -21,7 +22,9 @@ const register = userData => async dispatch => {
     token.set(response.data.token);
     dispatch(authActions.registerSuccess(response.data));
   } catch (error) {
-    dispatch(authActions.registerError(error.message));
+    const errorMessage = error.response.data.message || 'This "email" is already in use';
+    toast.error(errorMessage);
+    dispatch(authActions.registerError(errorMessage));
   }
 };
 
@@ -34,7 +37,9 @@ const logIn = userData => async dispatch => {
     token.set(response.data.token);
     dispatch(authActions.loginSuccess(response.data));
   } catch (error) {
+    toast.error('Invalid "Login" or "Password"! Please checked your authorization data and try again');
     dispatch(authActions.loginError(error.message));
+
   }
 };
 
